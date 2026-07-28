@@ -1,0 +1,13 @@
+# DBeaver & IDE files
+.dbeaver/
+.settings/
+.project
+
+# OS Files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Temporary Database Files
+*.db-journal
+*.sqlite-journal
