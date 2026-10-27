@@ -73,7 +73,6 @@ left join Employee e on e.EmployeeId = c.SupportRepId
 where c.SupportRepId IS Not Null 
 And e.EmployeeId IS NULL ;
 
-Pragma foreign_keys;
 /*
 ===============================================================================
 TEST CASE ID        : CUST-TC005
@@ -109,7 +108,7 @@ where length (TRIM(C.Address)) < 3;
 Select * from Employee e ;
 Select * from Customer c ;
 
-
+Pragma foreign_keys;
 
 
 -- Get the most company h
