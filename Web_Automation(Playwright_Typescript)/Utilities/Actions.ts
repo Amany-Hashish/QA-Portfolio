@@ -18,5 +18,15 @@ async FillTextBox (ElemetLocator : Locator , Text : string) {
 async Click (ElementLocator : Locator) {
     await ElementLocator.click();
 }
- 
+
+async GetText (ElementLocator : Locator) : Promise <string|null> {
+  const TextContent =  await ElementLocator.textContent();
+  return TextContent ;
+}
+async RefreshPage (){
+    await this.page.reload();
+    
+}
+
+
 }

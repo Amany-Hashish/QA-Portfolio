@@ -8,7 +8,8 @@ export default class SidePanel extends BasePage {
     }
 
     async clickOnAdmin (){
-        await this.actions.Click(this.sidePanelActions(/Admin/i))
+        await this.actions.Click(this.sidePanelActions(/Admin/i));
+        await this.wait.waitPageToLoaded();
     }
 
 
