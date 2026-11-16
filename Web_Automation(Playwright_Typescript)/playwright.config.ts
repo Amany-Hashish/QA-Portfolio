@@ -1,8 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
-
-declare const process: {
-  env: Record<string, string | undefined>;
-};
+import { Path } from './auth/enum';
 
 /**
  * Read environment variables from file.
@@ -18,7 +15,7 @@ declare const process: {
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
-  fullyParallel: true,
+  fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
@@ -34,13 +31,21 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    baseURL : 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login',
+    //storageState : Path.StorageState,
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
+      name : 'Authenticate',
+      testMatch : /auth\.spec\.ts/,
+    },
+
+    {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+      dependencies : ['Authenticate'], //This project will run after Authenticate project
     },
     /*
     {

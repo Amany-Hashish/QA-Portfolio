@@ -28,5 +28,8 @@ async RefreshPage (){
     
 }
 
+async GoTo (URL : string){
+    await this.page.goto(URL);      
+}
 
 }

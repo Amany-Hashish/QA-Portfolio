@@ -6,7 +6,7 @@ export default class LoginPage extends BasePage{
   
 
   
-    private readonly OrangeHRM_URL : string ="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
+    private readonly OrangeHRM_URL : string ='/';
     private readonly UserName : Locator =  this.page.getByRole('textbox',{name : 'username'});
     private readonly Password : Locator = this.page.getByPlaceholder('Password');
     private readonly Login_Btn : Locator = this.page.getByRole('button',{name : /login/i});
